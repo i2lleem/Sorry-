@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I'm Sorry ❤️</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+      overflow: hidden;
+      color: white;
+      font-family: Arial;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      width: 340px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      animation: fadeIn 1.5s ease;
+      position: relative;
+    }
+
+    .name {
+      font-family: 'Pacifico', cursive;
+      font-size: 28px;
+      color: #ffb3c6;
+      animation: slideDown 1.5s ease;
+    }
+
+    .text {
+      margin-top: 15px;
+      font-size: 20px;
+      animation: glow 2s infinite alternate;
+    }
+
+    .buttons {
+      margin-top: 25px;
+      position: relative;
+      height: 80px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background: #ff4d6d;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      position: absolute;
+    }
+
+    #yes {
+      left: 20%;
+    }
+
+    #no {
+      left: 55%;
+    }
+
+    .hidden {
+      display: none;
+      margin-top: 15px;
+      font-size: 16px;
+      color: #ffd6e0;
+    }
+
+    .heart {
+      position: absolute;
+      color: red;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #ff4d6d; }
+      to { text-shadow: 0 0 20px #ff99ac; }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); }
+      100% { transform: translateY(-10vh); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <!-- بدل اسمها هنا -->
+  <div class="name">To My Love 💕</div>
+
+  <div class="text">
+    I'm sorry I love you so much ❤️
+  </div>
+
+  <div class="buttons">
+    <button id="yes" onclick="showMsg()">Yes ❤️</button>
+    <button id="no" onmouseover="moveBtn()">No 😅</button>
+  </div>
+
+  <div id="msg" class="hidden">
+    You made me the happiest ❤️
+  </div>
+</div>
+
+<script>
+  function showMsg() {
+    document.getElementById("msg").style.display = "block";
+  }
+
+  function moveBtn() {
+    let btn = document.getElementById("no");
+    let x = Math.random() * 200;
+    let y = Math.random() * 60;
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
+  }
+
+  // قلوب طايرة
+  setInterval(() => {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.innerHTML = "❤️";
+    heart.style.fontSize = (10 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 5000);
+  }, 400);
+</script>
+
+</body>
+  </html>
